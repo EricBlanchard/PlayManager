@@ -10,8 +10,15 @@ public class ButtonTheme : MonoBehaviour {
     private BUTTONTYPES m_ButtonType;
     private Button m_Button;
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            m_Button = Themes.Instance.LoadButtonTheme(m_Button, BUTTONTYPES.STANDARD);
+        }
+    }
+
 	void Start () {
-        m_Button = GetComponent<Button>();
-        m_Button = Themes.Instance.LoadButtonTheme(m_Button, BUTTONTYPES.STANDARD);
+        m_Button = GetComponent<Button>();       
 	}
 }
